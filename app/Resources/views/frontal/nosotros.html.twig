@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+{% block title %}Nuestro equipo{% endblock %}
+{% block contenido %}
+    <div class="container">
+
+      <!-- Page Heading/Breadcrumbs -->
+      <h1 class="mt-4 mb-3">Bar Germán
+        <small>Equipo</small>
+      </h1>
+
+      <!-- Image Header -->
+      <img class="img-fluid rounded mb-4" src="{{ asset('img/restaurante1.png') }}" alt="">
+      <h2>Nuestro Equipo</h2>
+      <!-- Marketing Icons Section -->
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <div class="card h-100 text-center">
+            <img class="img-fluid rounded mb-4" src="{{ asset('img/equipo1.jpg') }}" alt="">
+            <div class="card-body">
+                <h4 class="card-title">Lola Perez</h4>
+                <h6 class="card-subtitle mb-2 text-muted">Cocinera</h6>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#">name@example.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <div class="card h-100 text-center">
+           <img class="img-fluid rounded mb-4" src="{{ asset('img/equipo2.jpg') }}" alt="">
+            <div class="card-body">
+                <h4 class="card-title">Pere Mas</h4>
+                <h6 class="card-subtitle mb-2 text-muted">Chef</h6>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#">name@example.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <div class="card h-100 text-center">
+            <img class="img-fluid rounded mb-4" src="{{ asset('img/equipo3.jpg') }}" alt="">
+            <div class="card-body">
+                <h4 class="card-title">Igor Tomas</h4>
+                <h6 class="card-subtitle mb-2 text-muted">Camarero</h6>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#">name@example.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.row -->
+    </div>
+{% endblock %} 
