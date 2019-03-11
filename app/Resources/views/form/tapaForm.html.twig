@@ -8,6 +8,12 @@
     </div>
 {%- endblock form_row -%}
 
+{# nuevo campo customizado #}
+{% block _tapa_categoria_widget %}
+    <div class="text_widget">
+        {{ block('choice_widget') }} Nueva Categoria <input type="text" name="" value="" id="nuevaCat"><button type="button" name="button" onclick="return nuevaCatAdd()">+</button>
+{% endblock %}
+
 {%- block form_widget_simple -%}
     {%- set type = type|default('text') -%}
     <input type="{{ type }}" class="form-control" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
