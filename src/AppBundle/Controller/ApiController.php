@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use AppBundle\Entity\Categoria;
+use AppBundle\Entity\Ingrediente;
 
 /**
  * @Route("/api")
@@ -59,6 +60,49 @@ class ApiController extends Controller
 
         }
         return $categoriasArray;
+    }
+
+    /**
+     * @Route("/listarIngredientes", methods={"GET"})
+     */
+    public function listaIngredientesAction()
+    {
+        $repository = $this->getDoctrine()->getRepository(Ingrediente::class);
+        $ingredientes = $repository->findAll();
+        return new JsonResponse($this->ingredsToArray($ingredientes));
+    }
+
+    /**
+     * @Route("/insertarIngrediente/{nombre}", methods={"POST"})
+     */
+    public function insertarIngredienteAction($nombre="")
+    {
+        if(strlen($nombre) > 0){
+            $ingrediente = new Ingrediente();
+            $ingrediente->setNombre($nombre);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($ingrediente);
+            $em->flush();
+            return new JsonResponse($this->ingreToArray($ingrediente));
+        }
+       
+        throw new BadRequestHttpException('Falta nombre', null, 400);     
+    }
+
+    private function ingreToArray($ingrediente) {
+        $ingredienteArray = array();
+        $ingredienteArray["id"] = $ingrediente->getId();
+        $ingredienteArray["nombre"] = $ingrediente->getNombre();
+        return $ingredienteArray;
+    }
+
+    private function ingredsToArray($ingredientes) {
+        $ingredientesArray = array();
+        foreach ($ingredientes as $ingrediente) {
+           $ingredientesArray[] = $this->ingreToArray($ingrediente);
+
+        }
+        return $ingredientesArray;
     }
 
 }

@@ -12,6 +12,15 @@
 {% block _tapa_categoria_widget %}
     <div class="text_widget">
         {{ block('choice_widget') }} Nueva Categoria <input type="text" name="" value="" id="nuevaCat"><button type="button" name="button" onclick="return nuevaCatAdd()">+</button>
+    </div>
+{% endblock %}
+
+{% block _tapa_ingredientes_widget %}
+    <div class="text_widget">
+      
+        {# {{ block('checkbox_widget') }} #}
+        Nuevo Ingrediente <input type="text" name="" value="" id="nuevoIngred"><button type="button" name="button" onclick="return nuevoIngredAdd()">+</button>
+    </div>
 {% endblock %}
 
 {%- block form_widget_simple -%}
